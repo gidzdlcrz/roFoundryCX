@@ -1,0 +1,51 @@
+// Server name, use alternative character such as ASCII 160 for spaces.
+// NOTE: Do not use spaces or any of these characters which are not allowed in
+//       Windows filenames \/:*?"<>|
+//       ... or else guild emblems won't work client-side!
+server_name: roFoundry
+
+// Server Communication username and password.
+userid: username
+passwd: password
+
+// Login Server IP
+login_ip: 127.0.0.1
+
+// Character Server IP
+char_ip: 127.0.0.1
+
+// Starting zeny for new characters
+start_zeny: 50000
+
+// Amount of time in seconds by which the character deletion is delayed.
+// Default: 86400 (24 hours)
+// NOTE: Requires client 2010-08-03aragexeRE or newer.
+char_del_delay: 1
+
+// Restrict character deletion by email address or birthdate.
+// This restricts players from changing the langtype and deleting characters.
+// Defaults based on client date.
+// 1: Email address
+// 2: Birthdate
+// 3: Email address or Birthdate
+// IMPORTANT!
+// - This config only works for clients that send 0x0068 or 0x01fb for delete request.
+// - Use langtype 1 for newer clients (2013+), to use 0x01fb.
+// - Clients that are not using 0x0068 or 0x01fb, only use birthdate (YYMMDD) as default.
+char_del_option: 1
+
+//===================================
+// Pincode system
+//===================================
+// NOTE: Requires client 2011-03-09aragexeRE or newer.
+// A window is opened before you can select your character and you will have to enter a pincode by using only your mouse.
+// Default: yes
+pincode_enabled: no
+
+//===================================
+// Addon system
+//===================================
+// Default map if character is in not-existing map when loaded.
+default_map: prontera
+default_map_x: 156
+default_map_y: 191

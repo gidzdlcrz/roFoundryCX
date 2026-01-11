@@ -1,0 +1,29 @@
+#!/bin/bash
+
+cd trunk || exit 1
+echo "Server is Starting..."
+sleep 1
+
+# Start login-server
+screen -dmS log bash -c './login-server; exec bash'
+echo "Started ./login-server in 'log' screen."
+sleep 1
+
+# Start char-server
+screen -dmS char bash -c './char-server; exec bash'
+echo "Started ./char-server in 'char' screen."
+sleep 1
+
+# Ask user about GDB
+read -rp "Run map-server with GDB? [Y/N]: " USE_GDB
+
+case "$USE_GDB" in
+    [yY]|[yY][eE][sS])
+        echo "Starting map-server in GDB (manual run)..."
+        screen -S map bash -c 'gdb ./map-server; exec bash'
+        ;;
+    *)
+        echo "Starting map-server normally..."
+        screen -S map bash -c './map-server; exec bash'
+        ;;
+esac

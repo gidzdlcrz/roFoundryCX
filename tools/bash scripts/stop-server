@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Stopping server..."
+
+# Function to stop a screen session if it exists
+stop_screen() {
+    local name="$1"
+
+    if screen -list | grep -q "\.${name}[[:space:]]"; then
+        echo "Stopping screen: $name"
+        screen -S "$name" -X quit
+        sleep 1
+    else
+        echo "Screen '$name' not running."
+    fi
+}
+
+# Stop servers
+stop_screen log
+stop_screen char
+stop_screen map
+
+echo "All screens are killed and server has stopped."

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Restarting server..."
+
+# Stop servers
+./stopserver
+
+# Give processes time to exit
+sleep 2
+
+# Start servers
+./startserver
+
+echo "Restart completed."
